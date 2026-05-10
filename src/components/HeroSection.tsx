@@ -32,8 +32,7 @@ export default function HeroSection() {
         </span>
 
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 mb-4 text-xs text-white/70">
-          <span>{CURSO.facultad}</span>
-          <span>{CURSO.programa}</span>
+          <span>Escuela Profesional: {CURSO.facultad}</span>
           <span>Ciclo {CURSO.ciclo}</span>
           <span>{CURSO.semestre}</span>
         </div>
