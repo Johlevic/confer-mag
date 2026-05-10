@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUserTie, faGraduationCap, faBriefcase, faMicroscope, faGlobe, faAward } from "@fortawesome/free-solid-svg-icons"
 import { EVENTO, PONENTE } from "@/lib/constants"
@@ -44,9 +45,11 @@ export default function SpeakerSection() {
             <div className="bg-gradient-to-r from-[#0a4d3b] to-[#1a7a5c] p-8 md:p-10 text-white">
               <div className="flex flex-col md:flex-row gap-8 items-center text-center md:text-left">
                 <div className="relative">
-                  <img
+                  <Image
                     src="/img/ponente.png"
                     alt={EVENTO.ponente}
+                    width={160}
+                    height={160}
                     className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-[#c9a84c] shadow-2xl"
                   />
                   <div className="absolute -bottom-2 -right-2 bg-[#c9a84c] text-[#0a4d3b] w-10 h-10 rounded-full flex items-center justify-center border-4 border-white shadow-lg">

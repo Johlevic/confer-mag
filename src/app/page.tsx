@@ -2,6 +2,7 @@ import HeroSection from "@/components/HeroSection"
 import FaqSection from "@/components/FaqSection"
 import FadeIn from "@/components/FadeIn"
 import SpeakerSection from "@/components/SpeakerSection"
+import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUserTie, faEnvelope, faFlask, faDoorOpen, faChalkboardTeacher, faQuestionCircle, faCheckCircle } from "@fortawesome/free-solid-svg-icons"
 import { EVENTO, PONENTE, ORGANIZADORES, AGENDA } from "@/lib/constants"
@@ -86,7 +87,7 @@ export default function Home() {
               {ORGANIZADORES.filter(p => p.condicion !== 'Estudiante').map((p) => (
                 <div key={p.email} className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
                   {'foto' in p && p.foto ? (
-                    <img src={p.foto} alt={p.nombres} className="w-20 h-20 mx-auto mb-4 rounded-full object-cover border-[3px] border-[#c9a84c]" />
+                    <Image src={p.foto} alt={p.nombres} width={80} height={80} className="w-20 h-20 mx-auto mb-4 rounded-full object-cover border-[3px] border-[#c9a84c]" />
                   ) : (
                     <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#0a4d3b] to-[#1a7a5c] flex items-center justify-center text-white text-3xl">
                       <FontAwesomeIcon icon={faFlask} />

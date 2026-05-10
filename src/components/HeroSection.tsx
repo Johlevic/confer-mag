@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt, faClock, faFlask, faCalendarPlus } from '@fortawesome/free-solid-svg-icons'
 import { EVENTO, CURSO } from '@/lib/constants'
@@ -9,13 +10,17 @@ export default function HeroSection() {
 
   return (
     <section className="relative overflow-hidden text-white min-h-[500px] md:min-h-[600px] flex items-center">
-      <div className="absolute inset-0">
-        <img
+      <div className="absolute inset-0 bg-[#2d4a3b]">
+        <Image
           src="/img/facultad-ciencias-biologicas.jpg"
           alt="Facultad de Ciencias Biológicas"
-          className="w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
       </div>
+      <div className="absolute inset-0 bg-black/30" />
       <div className="relative w-full px-4 py-12 md:py-16 flex justify-center">
         <div className="max-w-2xl bg-gradient-to-br from-[#0a4d3b] via-[#1a7a5c] to-[#0d47a1] border border-[#c9a84c]/60 rounded-xl p-6 md:p-10 shadow-2xl text-center">
           <span className="inline-block bg-[#c9a84c] text-[#0a4d3b] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
