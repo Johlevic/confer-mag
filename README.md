@@ -21,22 +21,6 @@ Sistema de registro y certificados para la conferencia magistral del curso de Bi
 - SEO / Open Graph / PWA
 - Rate limiting en API
 
-## Variables de entorno
-
-Copiar `.env.local`:
-
-```bash
-DATABASE_URL="postgres://..."
-ADMIN_PASSWORD="admin123"
-MEET_LINK="https://meet.google.com/..."
-SITE_URL="http://localhost:3000"
-
-# Email (opcional)
-# SMTP_HOST="smtp.gmail.com"
-# SMTP_USER="tu-correo@gmail.com"
-# SMTP_PASS="xxxx xxxx xxxx xxxx"
-```
-
 ## Inicio rápido
 
 ```bash
