@@ -66,26 +66,23 @@ export default function Footer() {
           </AccordionSection>
         </div>
 
-        <div className="space-y-3 md:space-y-0 md:flex md:flex-col md:items-start">
-          <AccordionSection title="Contacto">
-            <div className="flex flex-col items-center md:items-start gap-3">
-              <a href={`mailto:${CONTACTO.email}`} className="inline-flex items-center gap-2 text-white/60 hover:text-[#c9a84c] transition-colors text-xs">
-                <FontAwesomeIcon icon={faEnvelope} className="text-[#c9a84c] text-[10px]" />
-                {CONTACTO.email}
-              </a>
-              <div className="flex gap-3 mt-1">
-                <a href={CONTACTO.facebook} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#c9a84c] hover:text-[#0a4d3b] flex items-center justify-center transition-colors" aria-label="Facebook">
-                  <FontAwesomeIcon icon={faFacebookF} className="text-xs" />
-                </a>
-                <a href={CONTACTO.instagram} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#c9a84c] hover:text-[#0a4d3b] flex items-center justify-center transition-colors" aria-label="Instagram">
-                  <FontAwesomeIcon icon={faInstagram} className="text-xs" />
-                </a>
-                <a href={CONTACTO.youtube} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#c9a84c] hover:text-[#0a4d3b] flex items-center justify-center transition-colors" aria-label="YouTube">
-                  <FontAwesomeIcon icon={faYoutube} className="text-xs" />
-                </a>
-              </div>
-            </div>
-          </AccordionSection>
+        <div className="flex flex-col items-center md:items-start gap-3">
+          <h4 className="text-white font-semibold text-xs uppercase tracking-wider">Contacto</h4>
+          <a href={`mailto:${CONTACTO.email}`} className="inline-flex items-center gap-2 text-white/60 hover:text-[#c9a84c] transition-colors text-xs">
+            <FontAwesomeIcon icon={faEnvelope} className="text-[#c9a84c] text-[10px]" />
+            {CONTACTO.email}
+          </a>
+          <div className="flex gap-3 mt-1">
+            <a href={CONTACTO.facebook} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#c9a84c] hover:text-[#0a4d3b] flex items-center justify-center transition-colors" aria-label="Facebook">
+              <FontAwesomeIcon icon={faFacebookF} className="text-xs" />
+            </a>
+            <a href={CONTACTO.instagram} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#c9a84c] hover:text-[#0a4d3b] flex items-center justify-center transition-colors" aria-label="Instagram">
+              <FontAwesomeIcon icon={faInstagram} className="text-xs" />
+            </a>
+            <a href={CONTACTO.youtube} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#c9a84c] hover:text-[#0a4d3b] flex items-center justify-center transition-colors" aria-label="YouTube">
+              <FontAwesomeIcon icon={faYoutube} className="text-xs" />
+            </a>
+          </div>
         </div>
       </div>
 
