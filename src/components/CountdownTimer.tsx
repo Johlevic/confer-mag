@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 interface TimeLeft {
   dias: number
@@ -9,8 +9,9 @@ interface TimeLeft {
   segundos: number
 }
 
-export default function CountdownTimer({ targetDate }: { targetDate: string }) {
+export default function CountdownTimer({ targetDate, onExpired }: { targetDate: string; onExpired?: () => void }) {
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null)
+  const notified = useRef(false)
 
   useEffect(() => {
     function calc() {
@@ -25,9 +26,16 @@ export default function CountdownTimer({ targetDate }: { targetDate: string }) {
     }
 
     setTimeLeft(calc())
-    const id = setInterval(() => setTimeLeft(calc()), 1000)
+    const id = setInterval(() => {
+      const t = calc()
+      setTimeLeft(t)
+      if (t.dias === 0 && t.horas === 0 && t.minutos === 0 && t.segundos === 0 && !notified.current) {
+        notified.current = true
+        onExpired?.()
+      }
+    }, 1000)
     return () => clearInterval(id)
-  }, [targetDate])
+  }, [targetDate, onExpired])
 
   if (!timeLeft) return null
 

@@ -1,12 +1,16 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarAlt, faClock, faFlask, faCalendarPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarAlt, faClock, faFlask, faCalendarPlus, faVideo } from '@fortawesome/free-solid-svg-icons'
 import { EVENTO, CURSO } from '@/lib/constants'
 import CountdownTimer from './CountdownTimer'
 
 export default function HeroSection() {
-  const meetLink = process.env.MEET_LINK || 'https://meet.google.com/aqt-tnxa-qwp'
+  const [expired, setExpired] = useState(false)
+  const meetLink = process.env.NEXT_PUBLIC_MEET_LINK || 'https://meet.google.com/aqt-tnxa-qwp'
 
   return (
     <section className="relative overflow-hidden text-white min-h-[500px] md:min-h-[600px] flex items-center animate-fade-in">
@@ -60,25 +64,28 @@ export default function HeroSection() {
         </div>
 
         <div className="mb-8">
-          <CountdownTimer targetDate={EVENTO.fechaISO} />
+          <CountdownTimer targetDate={EVENTO.fechaISO} onExpired={() => setExpired(true)} />
         </div>
 
         <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            href="/registro"
-            className="bg-[#c9a84c] hover:bg-[#d4b85a] text-[#0a4d3b] font-bold px-8 py-3 rounded-lg transition-all hover:-translate-y-0.5"
-          >
-            Registrarme
-          </Link>
-          <a
-            href={meetLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-2 border-white/30 hover:border-white/60 text-white px-8 py-3 rounded-lg font-semibold transition-all hover:-translate-y-0.5 inline-flex items-center gap-2"
-          >
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Google_Meet_icon_%282020%29.svg/3840px-Google_Meet_icon_%282020%29.svg.png" alt="Google Meet" className="w-5 h-5" />
-            Unirme a Google Meet
-          </a>
+          {!expired ? (
+            <Link
+              href="/registro"
+              className="bg-[#c9a84c] hover:bg-[#d4b85a] text-[#0a4d3b] font-bold px-8 py-3 rounded-lg transition-all hover:-translate-y-0.5"
+            >
+              Registrarme
+            </Link>
+          ) : (
+            <a
+              href={meetLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white/30 hover:border-white/60 text-white px-8 py-3 rounded-lg font-semibold transition-all hover:-translate-y-0.5 inline-flex items-center gap-2"
+            >
+              <FontAwesomeIcon icon={faVideo} className="text-[#c9a84c]" />
+              Unirme a Google Meet
+            </a>
+          )}
         </div>
         </div>
       </div>
