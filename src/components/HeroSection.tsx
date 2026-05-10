@@ -24,7 +24,7 @@ export default function HeroSection() {
       <div className="relative w-full px-4 py-12 md:py-16 flex justify-center">
         <div className="max-w-2xl bg-gradient-to-br from-[#0a4d3b] via-[#1a7a5c] to-[#0d47a1] border border-[#c9a84c]/60 rounded-xl p-6 md:p-10 shadow-2xl text-center">
           <span className="inline-block bg-[#c9a84c] text-[#0a4d3b] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-          <FontAwesomeIcon icon={faFlask} className="mr-1.5" /> {CURSO.nombre} - {EVENTO.tituloCorto}
+          <FontAwesomeIcon icon={faFlask} className="mr-1.5 w-3 h-3" /> {CURSO.nombre} - {EVENTO.tituloCorto}
         </span>
 
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 mb-4 text-xs text-white/70">
