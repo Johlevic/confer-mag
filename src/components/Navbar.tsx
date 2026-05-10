@@ -33,29 +33,31 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className={`bg-[#0a4d3b] fixed top-0 left-0 right-0 z-[60] shadow-lg transition-transform duration-300 ${hidden ? '-translate-y-full' : 'translate-y-0'}`}>
-      <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link href="/" className="text-white font-bold text-lg tracking-tight flex items-center gap-2" onClick={() => setOpen(false)}>
-          <img src="/img/logo-unt-icono.png" alt="UNT" className="h-8 w-auto" />
-          {APP_NAME}
-        </Link>
+    <>
+      <nav className={`bg-[#0a4d3b] fixed top-0 left-0 right-0 z-[60] shadow-lg transition-transform duration-300 ${hidden ? '-translate-y-full' : 'translate-y-0'}`}>
+        <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+          <Link href="/" className="text-white font-bold text-lg tracking-tight flex items-center gap-2" onClick={() => setOpen(false)}>
+            <img src="/img/logo-unt-icono.png" alt="UNT" className="h-8 w-auto" />
+            {APP_NAME}
+          </Link>
 
-        <div className="hidden md:flex gap-6 text-sm">
-          {links.map(l => (
-            <Link key={l.href} href={l.href} className="text-white/85 hover:text-[#c9a84c] transition-colors">
-              {l.label}
-            </Link>
-          ))}
+          <div className="hidden md:flex gap-6 text-sm">
+            {links.map(l => (
+              <Link key={l.href} href={l.href} className="text-white/85 hover:text-[#c9a84c] transition-colors">
+                {l.label}
+              </Link>
+            ))}
+          </div>
+
+          <button className="md:hidden text-white text-xl p-1" onClick={() => setOpen(true)} aria-label="Abrir menú">
+            <FontAwesomeIcon icon={faBars} />
+          </button>
         </div>
+      </nav>
 
-        <button className="md:hidden text-white text-xl p-1" onClick={() => setOpen(true)} aria-label="Abrir menú">
-          <FontAwesomeIcon icon={faBars} />
-        </button>
-      </div>
+      {open && <div className="fixed inset-0 bg-black/40 z-[70] md:hidden" onClick={() => setOpen(false)} />}
 
-      {open && <div className="fixed inset-0 bg-black/40 z-[61] md:hidden" onClick={() => setOpen(false)} />}
-
-      <div className={`fixed top-0 right-0 h-full w-72 bg-[#0a4d3b] z-[62] shadow-2xl transform transition-transform duration-300 md:hidden flex flex-col ${open ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed top-0 right-0 h-full w-72 bg-[#0a4d3b] z-[80] shadow-2xl transform transition-transform duration-300 md:hidden flex flex-col ${open ? 'translate-x-0' : 'translate-x-full'}`}>
         {/* Header */}
         <div className="flex items-center justify-between px-5 h-14 border-b border-white/10 flex-shrink-0">
           <div className="flex items-center gap-2">
@@ -89,6 +91,6 @@ export default function Navbar() {
           </p>
         </div>
       </div>
-    </nav>
+    </>
   )
 }
