@@ -9,7 +9,7 @@ export default function HeroSection() {
   const meetLink = process.env.MEET_LINK || 'https://meet.google.com/aqt-tnxa-qwp'
 
   return (
-    <section className="relative overflow-hidden text-white min-h-[500px] md:min-h-[600px] flex items-center">
+    <section className="relative overflow-hidden text-white min-h-[500px] md:min-h-[600px] flex items-center animate-fade-in">
       <div className="absolute inset-0 bg-[#2d4a3b]">
         <Image
           src="/img/facultad-ciencias-biologicas.jpg"
