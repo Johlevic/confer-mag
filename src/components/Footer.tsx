@@ -49,7 +49,7 @@ export default function Footer() {
             Facultad de Ciencias Biológicas<br />
             Universidad Nacional de Trujillo
           </p>
-          <p className="text-xs text-white/40 mt-1">
+          <p className="text-xs text-white/40 mt-1 text-center md:text-left">
             &copy; {EVENTO.year} {CURSO.facultad}. Todos los derechos reservados.
           </p>
         </div>
