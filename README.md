@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Conferencia Magistral - Biotecnología UNT
 
-## Getting Started
+Sistema de registro y certificados para la conferencia magistral del curso de Biotecnología de la Facultad de Ciencias Biológicas - Universidad Nacional de Trujillo.
 
-First, run the development server:
+## Tecnologías
+
+- **Framework:** Next.js 16 (App Router)
+- **Base de datos:** PostgreSQL (Vercel Postgres)
+- **Estilos:** Tailwind CSS 4
+- **Validación:** Zod
+- **Email:** Nodemailer (Gmail SMTP)
+- **Tests:** Vitest
+
+## Características
+
+- Registro de asistentes con validación en tiempo real
+- Generación automática de certificados digitales
+- Panel de administración con búsqueda y exportación CSV
+- Diseño responsive con menú adaptable
+- Notificaciones toast
+- SEO / Open Graph / PWA
+- Rate limiting en API
+
+## Variables de entorno
+
+Copiar `.env.local`:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+DATABASE_URL="postgres://..."
+ADMIN_PASSWORD="admin123"
+MEET_LINK="https://meet.google.com/..."
+SITE_URL="http://localhost:3000"
+
+# Email (opcional)
+# SMTP_HOST="smtp.gmail.com"
+# SMTP_USER="tu-correo@gmail.com"
+# SMTP_PASS="xxxx xxxx xxxx xxxx"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Inicio rápido
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tests
 
-## Learn More
+```bash
+npm run test
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
