@@ -13,24 +13,27 @@ const navLinks = [
   { href: '/certificados', label: 'Certificados' },
 ]
 
-function AccordionSection({ title, defaultOpen, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) {
-  const [open, setOpen] = useState(defaultOpen ?? false)
+function AccordionSection({ title, children }: { title: string; children: React.ReactNode }) {
+  const [open, setOpen] = useState(false)
 
   return (
     <div className="border-b border-white/10 md:border-b-0 pb-3 md:pb-0">
       <button
-        className="flex items-center justify-between w-full md:cursor-default py-2 md:py-0"
+        className="flex items-center justify-between w-full py-2 md:hidden"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
         <h4 className="text-white font-semibold text-xs uppercase tracking-wider">{title}</h4>
         <FontAwesomeIcon
           icon={faChevronDown}
-          className={`text-white/40 text-[10px] transition-transform duration-200 md:hidden ${open ? 'rotate-180' : ''}`}
+          className={`text-white/40 text-[10px] transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
         />
       </button>
+      <h4 className="hidden md:block text-white font-semibold text-xs uppercase tracking-wider mb-3">{title}</h4>
       <div className={`overflow-hidden transition-all duration-300 md:!max-h-none md:!opacity-100 ${open ? 'max-h-60 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
-        {children}
+        <div className="flex flex-col items-center md:items-start gap-3">
+          {children}
+        </div>
       </div>
     </div>
   )
@@ -56,13 +59,11 @@ export default function Footer() {
 
         <div className="space-y-3 md:space-y-0 md:flex md:flex-col md:items-start">
           <AccordionSection title="Enlaces">
-            <div className="flex flex-col items-center md:items-start gap-3">
-              {navLinks.map(l => (
-                <Link key={l.href} href={l.href} className="text-white/60 hover:text-[#c9a84c] transition-colors text-xs">
-                  {l.label}
-                </Link>
-              ))}
-            </div>
+            {navLinks.map(l => (
+              <Link key={l.href} href={l.href} className="text-white/60 hover:text-[#c9a84c] transition-colors text-xs">
+                {l.label}
+              </Link>
+            ))}
           </AccordionSection>
         </div>
 
